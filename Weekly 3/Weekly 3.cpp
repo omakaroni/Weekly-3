@@ -8,18 +8,55 @@ int GuessedNumber = 0;
 int TriesGuessed = 0;
 std::vector<int> Highscore;
 char answer;
+int Dificulity = 0;
+int NumberstoGuess = 0;
 
 int main()
 {
 	do
 	{
-		srand((unsigned int)time(0)); 
-		RandomNumber = rand() % 10 + 1; 
 		std::cout << "Welcome to the Guess a number Game\n\n";
 		TriesGuessed = 0;
+		std::cout << "Select Dificulity level\n";
+		std::cout << "1. Easy\n";
+		std::cout << "2. Medium\n";
+		std::cout << "3. Hard\n\n";
+		std::cin >> Dificulity;
+
+		switch (Dificulity)
+		{
+			case 1:
+			{
+				std::cout << "You selected Easy\n\n";
+				NumberstoGuess = 5;
+			}
+			break;
+			case 2:
+			{
+				std::cout << "You selected Medium\n\n";
+				NumberstoGuess = 10;
+			}
+			break;
+			case 3:
+			{
+				std::cout << "You selected Hard\n\n";
+				NumberstoGuess = 30;
+			}
+			break;
+			default:
+			{
+				std::cout << "You selected the secret level, SUPER HARD!\n\n";
+				NumberstoGuess = 100;
+			}
+			break;
+		}
+
+		srand((unsigned int)time(0));
+		RandomNumber = rand() % NumberstoGuess + 1;
+
 		do
 		{
-			std::cout << "Enter a number between 1 and 10 : ";
+			std::cout << "Enter a number between 1 and " << NumberstoGuess << " : ";
 			std::cin >> GuessedNumber;
 			TriesGuessed++;
 
