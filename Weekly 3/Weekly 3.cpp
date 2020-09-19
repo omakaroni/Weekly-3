@@ -9,7 +9,6 @@ int TriesGuessed = 0;
 std::vector<int> Highscore;
 char answer;
 
-
 int main()
 {
 	do
